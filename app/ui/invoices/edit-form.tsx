@@ -1,7 +1,7 @@
 "use client";
 
 import { CustomerField, InvoiceForm } from "@/app/lib/definitions";
-import { updateInvoice } from "@/app/lib/actons";
+import { State, updateInvoice } from "@/app/lib/actons";
 import {
   CheckIcon,
   ClockIcon,
@@ -19,6 +19,8 @@ export default function EditInvoiceForm({
   customers: CustomerField[];
 }) {
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+
+  const initialState: State = { message: null, errors: {} };
 
   return (
     <form action={updateInvoiceWithId}>
